@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import { Personajes } from './personajes';
+import { ShowPersonajes } from '../component/showpersonajes';
+import { ShowPlanetas } from '../component/showplanetas';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../styles/home.css";
 
@@ -33,7 +34,19 @@ export const Home = () => {
           </Container>
         </div>
         <Container fluid className="star-wars">
-          <Personajes />
+          <div className="my-5"></div> {/* Agrega un elemento div con un margen superior de 5 */}
+          <Col>
+            <h1 className="text-center">Star Wars Personajes</h1>
+          </Col>
+          <div className="my-5"></div> {/* Agrega un elemento div con un margen superior de 5 */}
+          <ShowPersonajes />
+
+          <div className="my-5"></div> {/* Agrega un elemento div con un margen superior de 5 */}
+          <Col>
+            <h1 className="text-center">Star Wars Planetas</h1>
+          </Col>
+          <div className="my-5"></div> {/* Agrega un elemento div con un margen superior de 5 */}
+          <ShowPlanetas />
         </Container> {/* Agrega el cierre de la etiqueta Container */}
       </div>
     </Container>
