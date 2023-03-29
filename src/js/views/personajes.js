@@ -30,7 +30,7 @@ export const Personajes = () => {
         "Han Solo es un personaje ficticio de la franquicia de Star Wars, interpretado en las películas por Harrison Ford. Es un contrabandista y piloto del Halcón Milenario que se une a la Alianza Rebelde.",
       imagen:
         "https://images3.alphacoders.com/865/86515.jpg",
-    },
+    }
   ];
 
   return (

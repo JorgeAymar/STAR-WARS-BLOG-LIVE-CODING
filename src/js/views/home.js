@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../styles/home.css";
+const cardStyle = { height: '100%' };
 
 export const Home = () => {
 
@@ -30,10 +31,10 @@ export const Home = () => {
 		{
 			nombre: "Han Solo",
 			descripcion:
-			  "Han Solo es un personaje ficticio de la franquicia de Star Wars, interpretado en las películas por Harrison Ford. Es un contrabandista y piloto del Halcón Milenario que se une a la Alianza Rebelde.",
+				"Han Solo es un personaje ficticio de la franquicia de Star Wars, interpretado en las películas por Harrison Ford. Es un contrabandista y piloto del Halcón Milenario que se une a la Alianza Rebelde.",
 			imagen:
-			  "https://images3.alphacoders.com/865/86515.jpg",
-		  }
+				"https://images3.alphacoders.com/865/86515.jpg",
+		}
 	];
 
 	return (
@@ -74,16 +75,18 @@ export const Home = () => {
 					<Row className="character-cards">
 						{personajes.map((personaje, index) => (
 							<Col key={index}>
-								<Card style={{ width: "18rem" }}>
+								<Card className="card-custom d-flex flex-column" style={{ ...cardStyle, width: '18rem' }}>
 									<Card.Img
 										variant="top"
 										src={personaje.imagen}
 										className="img-fluid"
 									/>
-									<Card.Body>
+									<Card.Body className="d-flex flex-column">
 										<Card.Title>{personaje.nombre}</Card.Title>
 										<Card.Text>{personaje.descripcion}</Card.Text>
-										<Button variant="primary">Más información</Button>
+										<div className="mt-auto">
+											<Button variant="primary">Más información</Button>
+										</div>
 									</Card.Body>
 								</Card>
 							</Col>
