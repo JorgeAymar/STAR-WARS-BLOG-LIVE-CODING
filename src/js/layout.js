@@ -6,12 +6,12 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 
 import { Personajes } from "./views/personajes";
-import { Planetas} from "./views/planetas";
+import { Planetas } from "./views/planetas";
 
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
-import { Navbar } from "./component/navbar";
+import { NavbarX } from "./component/navbarX";
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -24,7 +24,8 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+					<NavbarX />
+					
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />
@@ -35,6 +36,7 @@ const Layout = () => {
 
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
+
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
