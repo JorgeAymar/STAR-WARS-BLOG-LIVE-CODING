@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { FaHeart } from 'react-icons/fa';
 
 const cardStyle = { height: '100%' };
 
@@ -22,8 +23,11 @@ export const ShowPlanetas = () => {
               />
               <Card.Body className="d-flex flex-column">
                 <Card.Title>{planet.name}</Card.Title>
-                <div className="mt-auto">
-                  <Button variant="primary">Más información</Button>
+                <div className="d-flex justify-content-between align-items-center w-100">
+                  <Button variant="primary" className="mr-2">Más información</Button>
+                  <span className="text-muted d-flex align-items-center">
+                    <FaHeart size={24} />
+                  </span>
                 </div>
               </Card.Body>
             </Card>
