@@ -7,6 +7,8 @@ import { Demo } from "./views/demo";
 
 import { Personajes } from "./views/personajes";
 import { Planetas } from "./views/planetas";
+import DetailPersonaje from "./views/detailpersonaje";
+import DetailPlaneta from "./views/detailplaneta";
 
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
@@ -33,6 +35,9 @@ const Layout = () => {
 
 						<Route path="/personajes" element={<Personajes />} />
 						<Route path="/planetas" element={<Planetas />} />
+
+						<Route path="/detailpersonaje/:obj/:index" element={<DetailPersonaje />} />
+						<Route path="/detailplaneta/:obj/:index" element={<DetailPlaneta />} />
 
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>

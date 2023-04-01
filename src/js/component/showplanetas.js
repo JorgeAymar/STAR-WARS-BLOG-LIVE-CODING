@@ -1,14 +1,19 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { FaHeart } from 'react-icons/fa';
 
 const cardStyle = { height: '100%' };
 
+const handleButtonClick = (planeta, index) => {
+  navigate(`/detailplaneta/${JSON.stringify(personaje)}/${index}`);
+};
+
 export const ShowPlanetas = () => {
 
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
+  const navigate = useNavigate();
 
   return (
     <Container fluid className="star-wars">
@@ -24,7 +29,9 @@ export const ShowPlanetas = () => {
               <Card.Body className="d-flex flex-column">
                 <Card.Title>{planet.name}</Card.Title>
                 <div className="d-flex justify-content-between align-items-center w-100">
-                  <Button variant="primary" className="mr-2">Más información</Button>
+                <Button variant="primary" className="mr-2">
+                    <Link to={`/detailplaneta/${encodeURIComponent(JSON.stringify(planet))}/${index}`}>Más información</Link>
+                  </Button>
                   <span className="text-muted d-flex align-items-center">
                     <FaHeart size={24} />
                   </span>
