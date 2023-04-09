@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
-import { Dropdown } from "react-bootstrap";
+import { Dropdown, Button } from "react-bootstrap";
 import { Context } from "../store/appContext";
 
 const Favoritos = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
+
+  const handleEliminarFavorito = (favorito) => {
+    actions.eliminarFavorito(favorito);
+  };
 
   return (
     <Dropdown>
@@ -12,7 +16,12 @@ const Favoritos = () => {
       </Dropdown.Toggle>
       <Dropdown.Menu>
         {store.favoritos?.map((favorito, index) => (
-          <Dropdown.Item key={index}>{favorito}</Dropdown.Item>
+          <div key={index} className="d-flex align-items-center justify-content-between">
+            <Dropdown.Item>{favorito}</Dropdown.Item>
+            <Button variant="danger" onClick={() => handleEliminarFavorito(favorito)}>
+              <i className="fas fa-trash-alt"></i>
+            </Button>
+          </div>
         ))}
       </Dropdown.Menu>
     </Dropdown>

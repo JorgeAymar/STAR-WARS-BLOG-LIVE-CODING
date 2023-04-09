@@ -64,6 +64,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			setFavoritos: favoritos => {
 				setStore({ favoritos: favoritos });
+			},
+			
+			eliminarFavorito: favorito => {
+				const store = getStore();
+				const nuevosFavoritos = store.favoritos.filter(f => f !== favorito);
+				setStore({ favoritos: nuevosFavoritos });
 			}
 		}
 	};
