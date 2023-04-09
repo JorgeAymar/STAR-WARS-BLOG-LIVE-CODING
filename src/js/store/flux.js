@@ -5,6 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			planets : [],
 
+			favoritos: [],
+
 			demo: [
 				{
 					title: "FIRST",
@@ -58,6 +60,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			
+			setFavoritos: favoritos => {
+				setStore({ favoritos: favoritos });
 			}
 		}
 	};

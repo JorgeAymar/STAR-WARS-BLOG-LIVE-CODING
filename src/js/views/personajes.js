@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { ShowPersonajes } from "../component/showpersonajes"
+import { Container, Row, Col } from "react-bootstrap";
+import ShowPersonajes from "../component/showpersonajes"
 
 export const Personajes = () => {
 
@@ -13,7 +13,7 @@ export const Personajes = () => {
         </Col>
       </Row>
       <div className="my-5"></div> {/* Agrega un elemento div con un margen superior de 5 */}
-      <ShowPersonajes />
+      <ShowPersonajes showAll={true} />
     </Container>
   );
 };

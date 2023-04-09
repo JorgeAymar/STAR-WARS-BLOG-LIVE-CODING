@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import { ShowPersonajes } from '../component/showpersonajes';
-import { ShowPlanetas } from '../component/showplanetas';
+import ShowPersonajes from '../component/showpersonajes';
+import ShowPlanetas from '../component/showplanetas';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../styles/home.css";
 
@@ -39,14 +39,13 @@ export const Home = () => {
             <h1 className="text-center">Star Wars Personajes</h1>
           </Col>
           <div className="my-5"></div> {/* Agrega un elemento div con un margen superior de 5 */}
-          <ShowPersonajes />
-
+          <ShowPersonajes showAll={false} />
           <div className="my-5"></div> {/* Agrega un elemento div con un margen superior de 5 */}
           <Col>
             <h1 className="text-center">Star Wars Planetas</h1>
           </Col>
           <div className="my-5"></div> {/* Agrega un elemento div con un margen superior de 5 */}
-          <ShowPlanetas />
+          <ShowPlanetas showAll={false} />
         </Container> {/* Agrega el cierre de la etiqueta Container */}
       </div>
     </Container>

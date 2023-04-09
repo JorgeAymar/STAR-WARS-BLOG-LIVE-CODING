@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { ShowPlanetas } from "../component/showplanetas";
+import { Container, Row, Col } from "react-bootstrap";
+import ShowPlanetas from "../component/showplanetas";
 
 export const Planetas = () => {
   
@@ -13,7 +13,7 @@ export const Planetas = () => {
         </Col>
       </Row>
       <div className="my-5"></div> {/* Agrega un elemento div con un margen superior de 5 */}
-      <ShowPlanetas />
+      <ShowPlanetas showAll={true} />
     </Container>
   );
 };

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Context } from '../store/appContext';
 
 function DetailPlaneta() {
-    const { obj, index } = useParams();
+  const { store } = useContext(Context);
+  const { index } = useParams();
 
-    const planeta = JSON.parse(obj);
+  const planet = store.planets?.results?.[index];
 
   return (
     <Container>
@@ -17,39 +19,39 @@ function DetailPlaneta() {
                 <Col md={4}>
                   <img
                     src={`https://starwars-visualguide.com/assets/img/planets/${parseInt(index) + 1}.jpg`}
-                    alt={`Imagen de ${planeta.name}`}
+                    alt={`Imagen de ${planet?.name}`}
                     className="img-fluid"
                   />
                 </Col>
                 <Col md={8}>
-                  <h2>{planeta.name}</h2>
+                  <h2>{planet?.name}</h2>
                   <p>
                     <strong>Período de rotación: </strong>
-                    {planeta.rotation_period} horas
+                    {planet?.rotation_period} horas
                   </p>
                   <p>
                     <strong>Período orbital: </strong>
-                    {planeta.orbital_period} días
+                    {planet?.orbital_period} días
                   </p>
                   <p>
                     <strong>Diámetro: </strong>
-                    {planeta.diameter} km
+                    {planet?.diameter} km
                   </p>
                   <p>
                     <strong>Clima: </strong>
-                    {planeta.climate}
+                    {planet?.climate}
                   </p>
                   <p>
                     <strong>Terreno: </strong>
-                    {planeta.terrain}
+                    {planet?.terrain}
                   </p>
                   <p>
                     <strong>Superficie de agua: </strong>
-                    {planeta.surface_water}%
+                    {planet?.surface_water}%
                   </p>
                   <p>
                     <strong>Población: </strong>
-                    {planeta.population}
+                    {planet?.population}
                   </p>
                 </Col>
               </Row>

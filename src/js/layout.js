@@ -1,52 +1,49 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ScrollToTop from "./component/scrollToTop";
-
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
-
 import { Personajes } from "./views/personajes";
 import { Planetas } from "./views/planetas";
 import DetailPersonaje from "./views/detailpersonaje";
 import DetailPlaneta from "./views/detailplaneta";
-
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
-
-import { NavbarX } from "./component/navbarX";
+import NavbarX from "./component/navbarX";
 import { Footer } from "./component/footer";
+import { Container } from 'react-bootstrap';
 
-//create your first component
-const Layout = () => {
-	//the basename is used when your project is published in a subdirectory and not in the root of the domain
-	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
-	const basename = process.env.BASENAME || "";
+const Layout = ({ children, favoritosMenu, setFavoritosMenu }) => {
+  const basename = process.env.BASENAME || "";
 
-	return (
-		<div>
-			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<NavbarX />
-					
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
-
-						<Route path="/personajes" element={<Personajes />} />
-						<Route path="/planetas" element={<Planetas />} />
-
-						<Route path="/detailpersonaje/:obj/:index" element={<DetailPersonaje />} />
-						<Route path="/detailplaneta/:obj/:index" element={<DetailPlaneta />} />
-
-						<Route path="*" element={<h1>Not found!</h1>} />
-					</Routes>
-
-					<Footer />
-				</ScrollToTop>
-			</BrowserRouter>
-		</div>
-	);
+  return (
+    <div className="d-flex flex-column min-vh-100">
+      <Container>
+        <NavbarX
+          favoritosMenu={favoritosMenu}
+          setFavoritosMenu={setFavoritosMenu}
+        />
+      </Container>
+      <BrowserRouter basename={basename}>
+        <div className="flex-grow-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/demo" element={<Demo />} />
+            <Route path="/single/:theid" element={<Single />} />
+            <Route path="/personajes" element={<Personajes />} />
+            <Route path="/planetas" element={<Planetas />} />
+            <Route
+              path="/detailpersonaje/:index"
+              element={<DetailPersonaje />}
+            />
+            <Route path="/detailplaneta/:index" element={<DetailPlaneta />} />
+            <Route path="*" element={<h1>Not found!</h1>} />
+          </Routes>
+        </div>
+        <Footer />
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default injectContext(Layout);
+
